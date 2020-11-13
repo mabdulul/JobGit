@@ -1,0 +1,219 @@
+
+.SearchBar-wrapper{
+    position: relative;
+    top: -50%;
+}
+
+.search-modal-mobile{
+    display: none;
+}
+
+.search_drilldown-holder button{
+    background-color: transparent;
+    outline: none
+}
+.search_drilldown-holder button:hover,
+.search_drilldown-holder button:focus{
+    border: transparent !important;
+    outline: transparent !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 0 0.2rem rgb(255 255 255 / 11%) !important;
+}
+
+
+.search-modal{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+}
+
+
+.only-display-on-tablet-and-Desktop{
+    display: none;
+}
+
+.mobile-search-holder{
+    background-color: #ffff;
+    border-radius: 6px;
+    margin: 0 auto;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.mobile-search-holder-modal{
+    background-color: #ffff;
+    border-radius: 6px;
+    margin: 0 auto;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: center;
+
+}
+
+.SearchBar input,
+.mobile-search-holder-modal input{
+    border: none;
+    outline: none;
+}
+
+.SearchBar button{
+    background-color: none;
+    border: none;
+    outline: none;
+}
+.search_Input-holder{
+    width: 75%;
+    height: 100%;
+}
+
+
+.search_Input-holder input,
+.modal-location,
+.Search_container{
+    height: 100%;
+    width: 100%;
+    margin-left: 24px;
+}
+.modal-location{
+    display: grid;
+    align-content: center;   
+}
+
+.modal-location div{
+    margin: 24px 0px 24px 0px;
+}
+
+.Search_container{
+    margin-right: 24px;
+    margin-top: 24px;
+    
+    padding: 0px;
+}
+
+.search-icon-modal{
+    margin-right: 18px;
+}
+
+
+
+.searchModal-hr{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.btn{
+    background-color: #5964E0 ;
+    border-radius: 5px;
+    color: white;
+    
+}
+
+.searchModal-hr{
+    width: 100%;
+    opacity: 0.2;
+    background-color: #6E8098;
+}
+
+.search-holder-white{
+   
+    margin: 1rem 1rem 1rem 1.5rem;
+}
+.search-holder button{
+     padding: 14px;
+     border-radius: 5px;
+
+}
+
+/*********************** CheckBox Styles *****************************/
+
+.container_check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+   
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container_check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background: rgba(25, 32, 45, 0.1);
+    
+    border-radius: 3px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container_check:hover input ~ .checkmark {
+    background: rgb(25 32 45 / 20%);
+   
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container_check input:checked ~ .checkmark {
+    background: #5964E0;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container_check input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container_check .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .Search_FullTime{
+      font-size: 14px;
+      font-weight: 600px;
+      position: relative;
+      top: 4px;
+  }
+
+
+  .btn-search-modal{
+      margin:24px;
+      padding-top: 15px;
+      padding-bottom: 15px ;
+  }
+
+
+

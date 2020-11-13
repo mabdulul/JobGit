@@ -1,0 +1,43 @@
+.company-logoHolder{
+    width: 50px;
+    height: 50px;
+    background-color: teal;
+    padding: 7px;
+
+}
+
+.company-logo{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Jobs-wrapper{
+    display: grid;
+  
+    grid-template-columns: repeat( auto-fit, minmax(270px, 1fr) );
+    grid-column-gap: 30px;
+}
+
+.Job-single{
+    /* width: 327px;
+    height: 253px; */
+}
+
+.Job-single .company{
+    font-size: .8rem;
+}
+
+@media (min-width: 768px) { 
+    .Jobs-wrapper{
+        grid-column-gap: 11px;
+    }
+ }
+
+@media (min-width: 992px) { 
+    
+    .Jobs-wrapper{
+        grid-column-gap: 30px;
+    }
+
+}
+
