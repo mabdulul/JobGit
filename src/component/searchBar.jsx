@@ -24,110 +24,115 @@ const SearchBar = ({
 
 	return (
 		<>
-			<div className="SearchBar-wrapper">
-				<form onSubmit={onSubmit} className="SearchBar">
-					<div className="mobile-search-holder search-wrapper ">
-						<img
-							className="search-icons search-DandT"
-							src={Search}
-							alt="search"
-						/>
-						<div className="search_Input-holder test">
+			<div className='SearchBar-wrapper'>
+				<form onSubmit={onSubmit} className='SearchBar'>
+					<div className='Search_Container search-wrapper '>
+						<div className='search_Input-holder another-wrapper'>
+							<img
+								className='search-icons search-DandT'
+								src={Search}
+								alt='search'
+							/>
 							<input
-								className="search_Input"
-								type="text"
-								placeholder="Filter by title..."
-								name="type"
+								className='search_Input'
+								type='text'
+								placeholder='Filter by title...'
+								name='type'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
 							/>
 						</div>
-						<div className="modal-locationDandT warpper-location test">
-									<div className="modalLocation">
-										<img
-											className="search-icons"
-											src={LocationIcon}
-											alt="LocationIcon"
-										/>
-										<input
-											className="Search_Input"
-											type="text"
-											placeholder="Filter by location…"
-											name="location"
-											value={location}
-											onChange={(e) => setLocation(e.target.value)}
-										/>
-									</div>
-								</div>
-								<div className=" search-DandT test">
-									<label className="container_check">
-										<div className="Search_FullTime">FullTime </div>
-										<input
-											className="Search_Input"
-											type="checkbox"
-											name="fulltime"
-											value={fulltime}
-											onChange={(e) => setFulltime(!!!fulltime)}
-										/>
-
-										<div className="checkmark"></div>
-									</label>
-									<div className="search-holder  ">
-							<button className="btn btn-search" type="submit">
-								<span className="search-DandT">Search</span>
-								
-							</button>
+						<div className='modal-locationDandT warpper-location '>
+							<div className='another-wrapper'>
+								<img
+									className='search-icons'
+									src={LocationIcon}
+									alt='LocationIcon'
+								/>
+								<input
+									className='Search_Input'
+									type='text'
+									placeholder='Filter by location…'
+									name='location'
+									value={location}
+									onChange={(e) => setLocation(e.target.value)}
+								/>
+							</div>
 						</div>
+						<div className='search-DandT test Search-CheckBox  '>
+							<div className='another-wrapper'>
+								<label className='container_check'>
+									<div className='Search_FullTime'>FullTime </div>
+									<input
+										className='Search_Input'
+										type='checkbox'
+										name='fulltime'
+										value={fulltime}
+										onChange={(e) => setFulltime(!!!fulltime)}
+									/>
+
+									<div className='checkmark'></div>
+								</label>
+								<div className='search-holder search-holder-white '>
+									<button className='btn btn-search' type='submit'>
+										<span className='search-DandT'>Search</span>
+									</button>
 								</div>
-						<div className="search_drilldown-holder search-holder-modal">
-							<Button className="btn-modal" onClick={handleShow}>
-								<img src={drilldown} alt="drilldown" />
+							</div>
+						</div>
+						<div className='search_drilldown-holder search-holder-modal'>
+							<Button className='btn-modal' onClick={handleShow}>
+								<img src={drilldown} alt='drilldown' />
 							</Button>
 						</div>
-						<div className="search-holder search-holder-white onlyOnmobile">
-							<button className="btn btn-search" type="submit">
-								<img className="search-icons onlyOnmobile" src={searchWhite} alt="search" />
+						<div className='search-holder search-holder-white onlyOnmobile'>
+							<button className='btn btn-search' type='submit'>
+								<img
+									className='search-icons onlyOnmobile'
+									src={searchWhite}
+									alt='search'
+								/>
 							</button>
 						</div>
 					</div>
 
 					<Modal show={show} onHide={handleClose} animation={false}>
 						<form onSubmit={onSubmit}>
-							<div className="mobile-search-holder-modal search-wrapper">
-								<div className="modal-location">
+							<div className='Search_Container-modal search-wrapper'>
+								<div className='modal-location'>
 									<div>
 										<img
-											className="search-icons search-icon-modal"
+											className='search-icons search-icon-modal'
 											src={LocationIcon}
-											alt="LocationIcon"
+											alt='LocationIcon'
 										/>
 										<input
-											className="Search_Input"
-											type="text"
-											placeholder="Filter by location…"
-											name="location"
+											className='Search_Input'
+											type='text'
+											placeholder='Filter by location…'
+											name='location'
 											value={location}
 											onChange={(e) => setLocation(e.target.value)}
 										/>
 									</div>
 								</div>
-								<hr className="searchModal-hr" />
+								<hr className='searchModal-hr' />
 
-								<div className="Search_container">
-									<label className="container_check">
-										<div className="Search_FullTime">Full Time Only</div>
+								<div className='Search_checkbox'>
+									<label className='container_check'>
+										<div className='Search_FullTime'>Full Time Only</div>
 										<input
-											className="Search_Input"
-											type="checkbox"
-											name="fulltime"
+											className='Search_Input'
+											type='checkbox'
+											name='fulltime'
 											value={fulltime}
 											onChange={(e) => setFulltime(!!!fulltime)}
 										/>
 
-										<div className="checkmark"></div>
+										<div className='checkmark'></div>
 									</label>
 								</div>
-								<button className="btn btn-search-modal" type="submit">
+								<button className='btn btn-search-modal' type='submit'>
 									Search
 								</button>
 							</div>
