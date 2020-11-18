@@ -66,28 +66,28 @@ function App() {
 
 	return (
 		<>
-			<header className="header-logo">
-				<div className="container">
-					<div className="row">
-						<div className="col-sm-12 col-md-12 col-lg-12 col-header">
+			<header className='header-logo'>
+				<div className='container'>
+					<div className='row'>
+						<div className='col-sm-12 col-md-12 col-lg-12 col-header'>
 							<div>
-								<img src={Logo} className="img-fluid" alt="logo" />
+								<img src={Logo} className='img-fluid' alt='logo' />
 							</div>
 							<div>
-								<img src={sun} alt="light" />
-								<label className="switch">
-									<input type="checkbox" />
-									<span className="slider round"></span>
+								<img src={sun} alt='light' />
+								<label className='switch'>
+									<input type='checkbox' />
+									<span className='slider round'></span>
 								</label>
-								<img src={moon} alt="light" />
+								<img src={moon} alt='light' />
 							</div>
 						</div>
 					</div>
 				</div>
 			</header>
-			<div className="container">
-				<div className="row">
-					<div className="col-sm-12 col-md-12 col-lg-12 ">
+			<div className='container'>
+				<div className='row'>
+					<div className='col-sm-12 col-md-12 col-lg-12 '>
 						<SearchBar
 							onSubmit={onSubmit}
 							location={state.location}
@@ -99,8 +99,8 @@ function App() {
 						/>
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-sm-12 col-md-12 col-lg-12 ">
+				<div className='row'>
+					<div className='col-sm-12 col-md-12 col-lg-12 '>
 						{state.loading && <h1>Loading...</h1>}
 						{!!state.error}
 						<div>
@@ -109,32 +109,38 @@ function App() {
 							) : (
 								<>
 									<>
-										<div className="Jobs-wrapper">
+										<div className='Jobs-wrapper'>
 											{state.jobs.map((jo) => (
-												<div className="Job-single" key={jo.id}>
-													<ul key={jo.id}>
-														<li className="company-logoHolder">
+												<div className='Job-post' key={jo.id}>
+													<div className='Job-company'>
+														<div className='company-logoHolder'>
 															{!jo.company_logo ? (
-																<p className="company-logo">Null</p>
+																<p className='company-logo'>Null</p>
 															) : (
 																<img
 																	src={jo.company_logo}
-																	alt="company-logo"
-																	className="company-logo"
+																	alt='company-logo'
+																	className='company-logo'
 																/>
 															)}
-														</li>
-														<li className="when-created">
-															{jo.created_at}
-															<span className="dot"></span>
-															<span className="type">{jo.type}</span>
-														</li>
-														<li className="title">{jo.title}</li>
-														<li className="company">{jo.company}</li>
-														<li className="location">
-															<span>{jo.location}</span>
-														</li>
-													</ul>
+														</div>
+													</div>
+													<div key={jo.id} className='Job-post-wrapper'>
+														<div className='Job-Deatils'>
+															<div className='when-created'>
+																{jo.created_at}
+																<span className='Job-dot'>•</span>
+																<span className='Job-type'>{jo.type}</span>
+															</div>
+															<div className='Job-title'>
+																<p>{jo.title}</p>
+															</div>
+															<div className='Job-company'>{jo.company}</div>
+															<div className='Job-location'>
+																<span>{jo.location}</span>
+															</div>
+														</div>
+													</div>
 												</div>
 											))}
 										</div>
