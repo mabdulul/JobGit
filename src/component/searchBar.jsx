@@ -52,7 +52,7 @@ const SearchBar = ({
 			y: "1 year",
 			yy: "%d years",
 		},
-	});
+	}); 
 
 	return (
 		<>

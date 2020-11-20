@@ -21,6 +21,8 @@ import CompanyHolder from "./component/images/icons/company-placeholder.png";
 
 import Moment from "react-moment";
 
+import { Link } from "react-router-dom";
+
 function App() {
 	let [page, setPage] = useState(1);
 	const [type, setType] = useState("");
@@ -76,7 +78,9 @@ function App() {
 					<div className='row'>
 						<div className='col-sm-12 col-md-12 col-lg-12 col-header'>
 							<div>
-								<img src={Logo} className='img-fluid' alt='logo' />
+								<Link to='/'>
+									<img src={Logo} className='img-fluid' alt='logo' />
+								</Link>
 							</div>
 							<div>
 								<img src={sun} alt='light' />
@@ -116,7 +120,11 @@ function App() {
 									<>
 										<div className='Jobs-wrapper'>
 											{state.jobs.map((jo) => (
-												<div className='Job-post' key={jo.id}>
+												<Link
+													className='Job-post'
+													key={jo.id}
+													to={`/job/${jo.id}`}
+												>
 													<div className='Job-company'>
 														<div className='company-logoHolder'>
 															{!jo.company_logo ? (
@@ -156,7 +164,7 @@ function App() {
 															</div>
 														</div>
 													</div>
-												</div>
+												</Link>
 											))}
 										</div>
 									</>
