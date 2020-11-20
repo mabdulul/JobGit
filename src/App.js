@@ -4,6 +4,7 @@ import { getJobs } from "./component/apiFetch";
 import useFetchJobs from "./component/useFetchJobs.js";
 import SearchBar from "./component/searchBar";
 import JobsPagination from "./component/JobsPagination";
+import LoadingScreen from "./component/Loading";
 
 import "normalize.css";
 
@@ -15,6 +16,8 @@ import "./component/css/jobs.css";
 import Logo from "./component/images/devjobs.svg";
 import sun from "./component/images/icons/sun.svg";
 import moon from "./component/images/icons/moon.svg";
+
+import CompanyHolder from "./component/images/icons/company-placeholder.png";
 
 import Moment from "react-moment";
 
@@ -103,7 +106,7 @@ function App() {
 				</div>
 				<div className='row'>
 					<div className='col-sm-12 col-md-12 col-lg-12 '>
-						{state.loading && <h1>Loading...</h1>}
+						{state.loading && <LoadingScreen />}
 						{!!state.error}
 						<div className='Job-div'>
 							{state.jobs.length === 0 && state.loading === false ? (
@@ -117,7 +120,11 @@ function App() {
 													<div className='Job-company'>
 														<div className='company-logoHolder'>
 															{!jo.company_logo ? (
-																<p className='company-logo'>N/A</p>
+																<img
+																	src={CompanyHolder}
+																	alt='company-logo'
+																	className='company-logo'
+																/>
 															) : (
 																<img
 																	src={jo.company_logo}
@@ -157,7 +164,7 @@ function App() {
 							)}
 						</div>
 
-						<div>{state.loadingMore && <h1>Loading... More</h1>}</div>
+						<div>{state.loadingMore && <LoadingScreen />}</div>
 						<div className='d-flex justify-content-center btn-loading'>
 							{jobsLength === state.jobs.length ? (
 								" "
