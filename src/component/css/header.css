@@ -16,7 +16,9 @@ body {
 a {
 	text-decoration: none;
 }
-
+p {
+	margin: 0px;
+}
 ul {
 	list-style: none;
 	margin: 0;
@@ -120,4 +122,9 @@ input:checked + .slider:before {
 
 .slider.round:before {
 	border-radius: 50%;
+}
+
+button:hover {
+	background-color: #939bf4;
+	color: white !important;
 }

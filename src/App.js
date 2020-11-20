@@ -16,6 +16,8 @@ import Logo from "./component/images/devjobs.svg";
 import sun from "./component/images/icons/sun.svg";
 import moon from "./component/images/icons/moon.svg";
 
+import Moment from "react-moment";
+
 function App() {
 	let [page, setPage] = useState(1);
 	const [type, setType] = useState("");
@@ -103,7 +105,7 @@ function App() {
 					<div className='col-sm-12 col-md-12 col-lg-12 '>
 						{state.loading && <h1>Loading...</h1>}
 						{!!state.error}
-						<div>
+						<div className='Job-div'>
 							{state.jobs.length === 0 && state.loading === false ? (
 								<p>No jobs found</p>
 							) : (
@@ -115,7 +117,7 @@ function App() {
 													<div className='Job-company'>
 														<div className='company-logoHolder'>
 															{!jo.company_logo ? (
-																<p className='company-logo'>Null</p>
+																<p className='company-logo'>N/A</p>
 															) : (
 																<img
 																	src={jo.company_logo}
@@ -127,15 +129,21 @@ function App() {
 													</div>
 													<div key={jo.id} className='Job-post-wrapper'>
 														<div className='Job-Deatils'>
-															<div className='when-created'>
-																{jo.created_at}
+															<div className='date-created'>
+																<span>
+																	{" "}
+																	<Moment fromNow>{jo.created_at}</Moment>
+																</span>
 																<span className='Job-dot'>•</span>
 																<span className='Job-type'>{jo.type}</span>
 															</div>
 															<div className='Job-title'>
 																<p>{jo.title}</p>
 															</div>
-															<div className='Job-company'>{jo.company}</div>
+															<div className='Job-companyname'>
+																{jo.company}
+															</div>
+
 															<div className='Job-location'>
 																<span>{jo.location}</span>
 															</div>
@@ -150,7 +158,7 @@ function App() {
 						</div>
 
 						<div>{state.loadingMore && <h1>Loading... More</h1>}</div>
-						<div>
+						<div className='d-flex justify-content-center btn-loading'>
 							{jobsLength === state.jobs.length ? (
 								" "
 							) : (

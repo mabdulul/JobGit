@@ -1,19 +1,23 @@
 .company-logoHolder {
-	width: 50px;
-	height: 50px;
-	background-color: teal;
-	padding: 7px;
+	width: 60px;
+	height: 60px;
+	background-color: white;
+	padding: 4px;
 	position: absolute;
 	top: -10%;
 	margin-bottom: 24px;
 	border-radius: 15px;
 }
 
+.Job-div {
+	margin-top: 5%;
+}
 .Job-location {
 	color: #5964e0;
 	line-height: 17px;
 	font-size: 0.9rem;
 	font-weight: 600;
+	margin-top: 28px;
 }
 
 .Job-dot {
@@ -27,7 +31,7 @@
 	font-size: 1.3rem;
 }
 
-.Job-company {
+.Job-companyname {
 	color: #6e8098;
 	text-transform: capitalize;
 }
@@ -35,6 +39,8 @@
 .Job-Deatils {
 	position: relative;
 	margin-top: 35px;
+	display: grid;
+	gap: 13px;
 }
 
 .Job-post {
@@ -51,14 +57,20 @@
 
 .company-logo {
 	width: 90%;
+
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 .Jobs-wrapper {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 	grid-column-gap: 30px;
 	row-gap: 24px;
+}
+.date-created {
+	display: flex;
+	gap: 12px;
 }
 
 .Job-single {
@@ -68,6 +80,10 @@
 
 .Job-single .company {
 	font-size: 0.8rem;
+}
+.btn-loading button {
+	width: 141px;
+	height: 48px;
 }
 
 @media (min-width: 768px) {

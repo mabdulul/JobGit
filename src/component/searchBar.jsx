@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./css/search.css";
 import Search from "./images/icons/search_MandT.svg";
 import LocationIcon from "./images/icons/location.svg";
@@ -7,6 +7,8 @@ import LocationIcon from "./images/icons/location.svg";
 import drilldown from "./images/icons/drilldown.svg";
 import searchWhite from "./images/icons/white_search.svg";
 import Modal from "react-bootstrap/Modal";
+
+import moment from "moment";
 import Button from "react-bootstrap/Button";
 const SearchBar = ({
 	onSubmit,
@@ -18,9 +20,39 @@ const SearchBar = ({
 	setFulltime,
 }) => {
 	const [show, setShow] = useState(false);
+	const [placeholder, setPlaceHolder] = useState("");
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+
+	useEffect(() => {
+		if (window.innerWidth >= 774 && window.innerWidth < 1003) {
+			setPlaceHolder("Title...");
+		} else {
+			setPlaceHolder("Filter by title");
+		}
+	}, []);
+
+	moment.updateLocale("en", {
+		relativeTime: {
+			future: "in %s",
+			past: "%s ago",
+			s: "a few seconds",
+			ss: "%d seconds",
+			m: "1 min",
+			mm: "%d min",
+			h: "1h",
+			hh: "%dh",
+			d: "1d",
+			dd: "%dd",
+			w: "1w",
+			ww: "%dw",
+			M: "1mo",
+			MM: "%dmo",
+			y: "1 year",
+			yy: "%d years",
+		},
+	});
 
 	return (
 		<>
@@ -36,7 +68,7 @@ const SearchBar = ({
 							<input
 								className='search_Input'
 								type='text'
-								placeholder='Filter by title...'
+								placeholder={placeholder}
 								name='type'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
