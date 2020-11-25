@@ -1,0 +1,36 @@
+.Deatils-logo img {
+	width: 60px;
+	height: 60px;
+}
+.Deatils-company-wrapper {
+	background-color: #ffffff;
+	border-radius: 6px;
+	text-align: center;
+
+	padding: 32px 10px;
+}
+.company-name {
+	margin: 24px 0px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.btn-link {
+	background: hsla(235, 100%, 77%, 0.1);
+	border-radius: 5px;
+	text-align: center;
+	width: 147px;
+	height: 48px;
+	display: grid;
+	align-items: center;
+	margin: 0 auto;
+}
+.btn-link a {
+	color: #5964e0;
+	font-weight: 600;
+}
+.btn-link:hover,
+.btn-link a:hover {
+	background-color: #c6c9f4;
+	text-decoration: none;
+}
