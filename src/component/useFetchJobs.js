@@ -21,6 +21,7 @@ const reducer = (state, action) => {
 				jobs: [],
 			};
 		case "FETCH_SUCCESS":
+			console.log("Do see me ", action.payload)
 			return {
 				loading: false,
 				jobs: action.payload,

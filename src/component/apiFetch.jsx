@@ -18,7 +18,8 @@ export const getJobDetails = async (url) => {
 		`https://confident-khorana-8491e4.netlify.app/.netlify/functions/api/details/${url}`
 	);
 
-	console.log(response);
+	
 	const data = await response.json();
+	console.log("hello", data)
 	return data;
 };

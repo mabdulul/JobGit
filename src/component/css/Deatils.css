@@ -1,18 +1,46 @@
 .Deatils-logo img {
+	width: 90%;
+	align-self: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.Deatils-logo {
+	border-radius: 15px;
+	border: 1px solid;
+	border-color: #37383838;
+	background-color: white;
+	padding: 4px;
+	top: -54px;
+	position: relative;
 	width: 60px;
 	height: 60px;
+	justify-content: center;
+	display: grid;
+	margin: 0 auto;
 }
+
 .Deatils-company-wrapper {
 	background-color: #ffffff;
 	border-radius: 6px;
 	text-align: center;
-
 	padding: 32px 10px;
 }
+
+.Deatils-Wrapper {
+	top: -0.5%;
+	position: relative;
+}
+
 .company-name {
-	margin: 24px 0px;
+	margin-top: -30px;
+	margin-bottom: 24px;
+}
+.company-name p {
 	font-size: 1.5rem;
 	font-weight: 600;
+}
+.company-name span {
+	color: #6e8098;
 }
 
 .btn-link {
@@ -33,4 +61,82 @@
 .btn-link a:hover {
 	background-color: #c6c9f4;
 	text-decoration: none;
+}
+
+/*************Description-Wrapper******/
+
+.Job-dot {
+	margin-left: 14px;
+	margin-right: 14px;
+}
+.Description-Top {
+	display: grid;
+}
+
+.Description-Wrapper {
+	background-color: white;
+	border-radius: 6px;
+	padding: 40px 25px;
+}
+.Description-type {
+	color: #6e8098;
+}
+
+.Description-JobTitle {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.Description-Location {
+	color: #5964e0;
+
+	font-weight: 600;
+	margin-bottom: 24px;
+}
+.button-an {
+	background-color: #5964e0;
+	text-align: center;
+
+	height: 48px;
+	display: grid;
+	align-content: center;
+	border-radius: 6px;
+	margin-bottom: 32px;
+}
+.button-an a {
+	color: white;
+	font-weight: 700;
+}
+.Description-bottom {
+	color: #6e8098;
+}
+.Description-bottom ul {
+	margin-left: 20px;
+}
+.Description-bottom li {
+	margin: 14px 0px;
+}
+
+.Description-bottom li::before {
+	content: "• ";
+	color: #5964e0;
+}
+
+.how-to-apply {
+	background-color: #5964e0;
+	color: white;
+	padding: 40px 25px;
+	border-radius: 6px;
+	margin-top: 32px;
+}
+.how-to-apply a {
+	color: white;
+	border-bottom: 1px solid white;
+}
+.ApplyNow {
+	margin-top: 40px;
+	background-color: white;
+	padding: 25px 24px 23px 24px;
+}
+.ApplyNow .button-an {
+	margin-bottom: 0px;
 }

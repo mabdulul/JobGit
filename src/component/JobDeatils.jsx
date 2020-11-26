@@ -16,7 +16,8 @@ import "./css/Deatils.css";
 const JobDeatils = () => {
 	let { url } = useParams();
 	const [state, dispatch] = useFetchJobs();
-	const [applynow, setapplyNow] = useState("");
+    const [applynow, setapplyNow] = useState("");
+   
 
 	useEffect(() => {
 		dispatch({ type: "FETCH_LOADING" });
@@ -25,8 +26,9 @@ const JobDeatils = () => {
 				.then((response) => {
 					const expression = /<a\s+(?:[^>]*?\s+)?href="([^"]*)"/;
 					let regex = new RegExp(expression);
-
-					const test = response.how_to_apply.match(regex)[1];
+                    const test = response.how_to_apply.match(regex)[1];
+                    
+                   
 					setapplyNow(test);
 					dispatch({ type: `FETCH_SUCCESS`, payload: response });
 				})
@@ -43,7 +45,7 @@ const JobDeatils = () => {
 		};
 	}, [url, dispatch]);
 
-	console.log(state.jobs);
+	console.log("here",state.jobs);
 
 	return (
 		<>
@@ -53,13 +55,14 @@ const JobDeatils = () => {
 					<LoadingScreen />
 				) : (
 					<>
-						<div className='row'>
-							<div className='col-sm-12 col-md-12 col-lg-12 Deatils '>
-								<div key={state.jobs.id} className='Deatils-Wrapper '>
-									{state.loading}
+                    {state.loading}
 									{state.jobs.length === 0 && state.loading === false ? (
 										<p>Something went wrong. Try reloading</p>
 									) : (
+						<div className='row'>
+							<div className='col-sm-12 col-md-12 col-lg-12 Deatils '>
+								<div key={state.jobs.id} className='Deatils-Wrapper '>
+									
 										<>
 											<div className='Deatils-company-wrapper'>
 												<div className='Deatils-logo'>
@@ -77,40 +80,52 @@ const JobDeatils = () => {
 													)}
 												</div>
 												<div className='Deatils-companyName-wrapper'>
-													<p className='company-name'>{state.jobs.company}</p>
+													<div className='company-name'>
+														<p>{state.jobs.company}</p>
+														<span>{state.jobs.company_url}</span>
+													</div>
+
 													<div className='btn-link'>
 														<a href={state.jobs.company_url}>Company Site</a>
 													</div>
 												</div>
 											</div>
 										</>
-									)}
+									
 								</div>
-							</div>
-						</div>
-						<div>
-							<div className='col-sm-12 col-md-12 col-lg-12 '>
-								<div className='Deatils-more'>
+								<div className='Description Description-Wrapper'>
 									<div>
 										<div className='Description-Top'>
-											<span>
-												<Moment fromNow>{state.jobs.created_at}</Moment>
-											</span>
-											<span className='Job-dot'>•</span>
-											<span className='Job-type'>{state.jobs.type}</span>
-											<p>{state.jobs.title}</p>
-											<p>{state.jobs.location}</p>
-											<div className='button'>
-												<a href={applynow}>here</a>
+											<div className='Description-type'>
+												<span>
+													<Moment fromNow>{state.jobs.created_at}</Moment>
+												</span>
+												<span className='Job-dot'>•</span>
+												<span className='Job-type'>{state.jobs.type}</span>
+											</div>
+
+											<p className='Description-JobTitle'>{state.jobs.title}</p>
+											<p className='Description-Location'>
+												{state.jobs.location}
+											</p>
+											<div className='button-an'>
+												<a href={applynow}>Apply Now</a>
 											</div>
 										</div>
-										<div className='Description-botton'>
-											{Parser(state.jobs.description)}
-										</div>
+										
+                                        <div className="content Description-bottom" dangerouslySetInnerHTML={{__html: state.jobs.description}}></div>
+									</div>
+								</div>
+                                <div className="content how-to-apply" dangerouslySetInnerHTML={{__html: state.jobs.how_to_apply}}></div>
+			
+								<div className='ApplyNow'>
+									<div className='button-an'>
+										<a href={applynow}>Apply Now</a>
 									</div>
 								</div>
 							</div>
-						</div>
+                        </div>
+                        )}
 					</>
 				)}
 			</div>
