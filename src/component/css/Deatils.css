@@ -35,6 +35,9 @@
 	margin-top: -30px;
 	margin-bottom: 24px;
 }
+.company-dandt {
+	display: none;
+}
 .company-name p {
 	font-size: 1.5rem;
 	font-weight: 600;
@@ -139,4 +142,70 @@
 }
 .ApplyNow .button-an {
 	margin-bottom: 0px;
+}
+
+@media (min-width: 768px) {
+	.Deatils-logo {
+		width: 100%;
+		height: 100%;
+
+		padding: 0px;
+		top: 0px;
+		position: relative;
+		height: auto;
+		justify-content: center;
+		display: block;
+	}
+
+	.Deatils-Wrapper {
+		width: 100%;
+		height: 140px;
+	}
+	.Deatils-company-wrapper {
+		display: grid;
+		grid-template-columns: 140px 1fr 147px;
+		align-items: center;
+		text-align: left;
+		height: 140px;
+		padding: 0px 25px;
+	}
+
+	.Deatils-logo {
+	}
+
+	.company-name {
+		align-self: center;
+		margin-left: 40px;
+		margin-top: 42px;
+	}
+
+	.company-name p {
+		font-size: 24px;
+		line-height: 29px;
+	}
+	.btn-link {
+		margin-right: 43px;
+	}
+	.Deatils-logo {
+		border: 0px;
+		border-color: transparent;
+	}
+	.Deatils-logo img {
+		width: 70%;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.ApplyNow,
+	.Description-Top {
+		display: grid;
+		grid-template-columns: auto 147px;
+	}
+	.ApplyNow {
+		align-items: center;
+		padding: 0px 25px;
+	}
+
+	.company-dandt {
+		display: block;
+	}
 }

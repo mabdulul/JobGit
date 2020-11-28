@@ -8,7 +8,7 @@ import LoadingScreen from "./Loading";
 
 import Moment from "react-moment";
 
-import CompanyHolder from "./images/icons/company-placeholder.png";
+import CompanyHolder from "../component/images/icons/company-placeholder.png";
 
 import "./css/Deatils.css";
 
@@ -22,9 +22,10 @@ const JobDeatils = () => {
 		const fetchJobs = async () => {
 			await getJobDetails(url)
 				.then((response) => {
-					const expression = /<a\s+(?:[^>]*?\s+)?href="([^"]*)"/;
+					const expression = /<a\s+(?:[^>]*?\s+)?href="([^"]*)"|[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)/;
+
 					let regex = new RegExp(expression);
-					const test = response.how_to_apply.match(regex)[1];
+					const test = response.how_to_apply.match(regex)[1] || " ";
 
 					setapplyNow(test);
 					dispatch({ type: `FETCH_SUCCESS`, payload: response });
@@ -62,47 +63,51 @@ const JobDeatils = () => {
 										<>
 											<div className='Deatils-company-wrapper'>
 												<div className='Deatils-logo'>
-													{!state.jobs.logo ? (
-														<img
-															src={state.jobs.company_logo}
-															alt='company-logo'
-														/>
-													) : (
+													{!state.jobs.company_logo ? (
 														<img
 															src={CompanyHolder}
 															alt='company-logo'
 															className='company-logo'
 														/>
+													) : (
+														<img
+															src={state.jobs.company_logo}
+															alt='company-logo'
+															className='company-logo'
+														/>
 													)}
 												</div>
-												<div className='Deatils-companyName-wrapper'>
-													<div className='company-name'>
-														<p>{state.jobs.company}</p>
-														<span>
-															{!state.jobs.company_url
-																? " "
-																: state.jobs.company_url
-																		.replace("/", "")
-																		.replace("https:/", "")
-																		.replace("www.", "")
-																		.replace("www.", "")
-																		.replace("http:/", "")}
-														</span>
-													</div>
-
-													<div className='btn-link'>
-														{!state.jobs.company_url ? (
-															<div>
-																<p>No company site</p>
-															</div>
-														) : !state.jobs.company_url.match(
-																/[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)?/
-														  ) ? (
+												<div className='company-name'>
+													<p>{state.jobs.company}</p>
+													<span>
+														{!state.jobs.company_url
+															? " "
+															: state.jobs.company_url
+																	.replace("/", "")
+																	.replace("https:/", "")
+																	.replace("www.", "")
+																	.replace("www.", "")
+																	.replace("http:/", "")}
+													</span>
+												</div>
+												<div className='btn-link'>
+													{!state.jobs.company_url ? (
+														<div>
 															<p>No company site</p>
-														) : (
-															<a href={state.jobs.company_url}>Company Site</a>
-														)}
-													</div>
+														</div>
+													) : !state.jobs.company_url.match(
+															/[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)?/
+													  ) ? (
+														<p>No company site</p>
+													) : (
+														<a
+															href={state.jobs.company_url}
+															target='_blank'
+															rel='noopener noreferrer'
+														>
+															Company Site
+														</a>
+													)}
 												</div>
 											</div>
 										</>
@@ -110,22 +115,40 @@ const JobDeatils = () => {
 									<div className='Description Description-Wrapper'>
 										<div>
 											<div className='Description-Top'>
-												<div className='Description-type'>
-													<span>
-														<Moment fromNow>{state.jobs.created_at}</Moment>
-													</span>
-													<span className='Job-dot'>•</span>
-													<span className='Job-type'>{state.jobs.type}</span>
-												</div>
+												<div className='This'>
+													<div className='Description-type'>
+														<span>
+															<Moment fromNow>{state.jobs.created_at}</Moment>
+														</span>
+														<span className='Job-dot'>•</span>
+														<span className='Job-type'>{state.jobs.type}</span>
+													</div>
 
-												<p className='Description-JobTitle'>
-													{state.jobs.title}
-												</p>
-												<p className='Description-Location'>
-													{state.jobs.location}
-												</p>
+													<p className='Description-JobTitle'>
+														{state.jobs.title}
+													</p>
+													<p className='Description-Location'>
+														{state.jobs.location}
+													</p>
+												</div>
 												<div className='button-an'>
-													<a href={applynow}>Apply Now</a>
+													{applynow.length <= 1 ? (
+														<a
+															href={state.jobs.company_url}
+															target='_blank'
+															rel='noopener noreferrer'
+														>
+															Apply Now
+														</a>
+													) : (
+														<a
+															href={applynow}
+															target='_blank'
+															rel='noopener noreferrer'
+														>
+															Apply Now
+														</a>
+													)}
 												</div>
 											</div>
 
@@ -145,8 +168,37 @@ const JobDeatils = () => {
 									></div>
 
 									<div className='ApplyNow'>
+										<div className='company-name company-dandt'>
+											<p>{state.jobs.company}</p>
+											<span>
+												{!state.jobs.company_url
+													? " "
+													: state.jobs.company_url
+															.replace("/", "")
+															.replace("https:/", "")
+															.replace("www.", "")
+															.replace("www.", "")
+															.replace("http:/", "")}
+											</span>
+										</div>
 										<div className='button-an'>
-											<a href={applynow}>Apply Now</a>
+											{applynow.length <= 1 ? (
+												<a
+													href={state.jobs.company_url}
+													target='_blank'
+													rel='noopener noreferrer'
+												>
+													Apply Now
+												</a>
+											) : (
+												<a
+													href={applynow}
+													target='_blank'
+													rel='noopener noreferrer'
+												>
+													Apply Now
+												</a>
+											)}
 										</div>
 									</div>
 								</div>
