@@ -1,6 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import Header from "./header.jsx";
+import { useEffect, useState, useContext } from "react";
+
 import useFetchJobs from "./useFetchJobs.js";
 import { useParams } from "react-router-dom";
 import { getJobDetails } from "./apiFetch";
@@ -10,9 +10,15 @@ import Moment from "react-moment";
 
 import CompanyHolder from "../component/images/icons/company-placeholder.png";
 
+import { ThemeContext } from "../context/ThemeContext";
+
 import "./css/Deatils.css";
 
 const JobDeatils = () => {
+	const themeContext = useContext(ThemeContext);
+	const { isLightTheme, light, dark } = themeContext;
+	const theme = isLightTheme ? light : dark;
+
 	let { url } = useParams();
 	const [state, dispatch] = useFetchJobs();
 	const [applynow, setapplyNow] = useState("");
@@ -47,7 +53,6 @@ const JobDeatils = () => {
 
 	return (
 		<>
-			<Header />
 			<div className='container'>
 				{state.loading ? (
 					<LoadingScreen />
@@ -59,9 +64,16 @@ const JobDeatils = () => {
 						) : (
 							<div className='row'>
 								<div className='col-sm-12 col-md-12 col-lg-12 Deatils '>
-									<div key={state.jobs.id} className='Deatils-Wrapper '>
+									<div
+										key={state.jobs.id}
+										className='Deatils-Wrapper '
+										style={{ backgroundColor: theme.bg }}
+									>
 										<>
-											<div className='Deatils-company-wrapper'>
+											<div
+												className='Deatils-company-wrapper'
+												style={{ backgroundColor: theme.bg }}
+											>
 												<div className='Deatils-logo'>
 													{!state.jobs.company_logo ? (
 														<img
@@ -78,7 +90,9 @@ const JobDeatils = () => {
 													)}
 												</div>
 												<div className='company-name'>
-													<p>{state.jobs.company}</p>
+													<p style={{ color: theme.syntaxt }}>
+														{state.jobs.company}
+													</p>
 													<span>
 														{!state.jobs.company_url
 															? " "
@@ -93,17 +107,22 @@ const JobDeatils = () => {
 												<div className='btn-link'>
 													{!state.jobs.company_url ? (
 														<div>
-															<p>No company site</p>
+															<p style={{ color: theme.syntaxt }}>
+																No company site
+															</p>
 														</div>
 													) : !state.jobs.company_url.match(
 															/[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)?/
 													  ) ? (
-														<p>No company site</p>
+														<p style={{ color: theme.syntaxt }}>
+															No company site
+														</p>
 													) : (
 														<a
 															href={state.jobs.company_url}
 															target='_blank'
 															rel='noopener noreferrer'
+															style={{ color: theme.syntaxt }}
 														>
 															Company Site
 														</a>
@@ -112,7 +131,10 @@ const JobDeatils = () => {
 											</div>
 										</>
 									</div>
-									<div className='Description Description-Wrapper'>
+									<div
+										className='Description Description-Wrapper'
+										style={{ backgroundColor: theme.bg }}
+									>
 										<div>
 											<div className='Description-Top'>
 												<div className='This'>
@@ -124,7 +146,10 @@ const JobDeatils = () => {
 														<span className='Job-type'>{state.jobs.type}</span>
 													</div>
 
-													<p className='Description-JobTitle'>
+													<p
+														className='Description-JobTitle'
+														style={{ color: theme.syntaxt }}
+													>
 														{state.jobs.title}
 													</p>
 													<p className='Description-Location'>
@@ -167,9 +192,14 @@ const JobDeatils = () => {
 										}}
 									></div>
 
-									<div className='ApplyNow'>
+									<div
+										className='ApplyNow'
+										style={{ backgroundColor: theme.bg }}
+									>
 										<div className='company-name company-dandt'>
-											<p>{state.jobs.company}</p>
+											<p style={{ color: theme.syntaxt }}>
+												{state.jobs.company}
+											</p>
 											<span>
 												{!state.jobs.company_url
 													? " "

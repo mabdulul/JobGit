@@ -1,26 +1,28 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getJobs } from "./component/apiFetch";
 import useFetchJobs from "./component/useFetchJobs.js";
 import SearchBar from "./component/searchBar";
 import JobsPagination from "./component/JobsPagination";
 import LoadingScreen from "./component/Loading";
 
-import Header from "./component/header.jsx";
-
-import "normalize.css";
+import { ThemeContext } from "./context/ThemeContext";
 
 //CSS
+import "normalize.css";
 import "./component/css/header.css";
 import "./component/css/jobs.css";
-
 import CompanyHolder from "./component/images/icons/company-placeholder.png";
 
 import Moment from "react-moment";
-
 import { Link } from "react-router-dom";
 
 function App() {
+	const themeContext = useContext(ThemeContext);
+
+	const { isLightTheme, light, dark } = themeContext;
+	const theme = isLightTheme ? light : dark;
+
 	let [page, setPage] = useState(1);
 	const [type, setType] = useState("");
 	const [location, setLocation] = useState("");
@@ -70,7 +72,6 @@ function App() {
 
 	return (
 		<>
-			<Header />
 			<div className='container'>
 				<div className='row'>
 					<div className='col-sm-12 col-md-12 col-lg-12 '>
@@ -101,9 +102,16 @@ function App() {
 													className='Job-post'
 													key={jo.id}
 													to={`/job/${jo.id}`}
+													style={{ backgroundColor: theme.bg }}
 												>
 													<div className='Job-company'>
-														<div className='company-logoHolder'>
+														<div
+															className='company-logoHolder'
+															style={{
+																backgroundColor: theme.bg,
+																borderColor: theme.border,
+															}}
+														>
 															{!jo.company_logo ? (
 																<img
 																	src={CompanyHolder}
@@ -130,7 +138,9 @@ function App() {
 																<span className='Job-type'>{jo.type}</span>
 															</div>
 															<div className='Job-title'>
-																<p>{jo.title}</p>
+																<p style={{ color: theme.syntaxt }}>
+																	{jo.title}
+																</p>
 															</div>
 															<div className='Job-companyname'>
 																{jo.company}

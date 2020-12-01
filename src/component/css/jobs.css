@@ -13,6 +13,10 @@
 	align-items: center;
 }
 
+.date-created span {
+	color: #6e8098;
+}
+
 .Job-div {
 	margin-top: 5%;
 }

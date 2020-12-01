@@ -7,6 +7,12 @@
 	display: none;
 }
 
+.modal-content {
+	border: none;
+	border-color: transparent;
+	border-radius: 11px;
+}
+
 /*Gid Rid of Boostrap Styles && Button Styles*/
 
 .search_drilldown-holder button {

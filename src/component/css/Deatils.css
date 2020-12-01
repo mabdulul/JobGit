@@ -29,6 +29,7 @@
 .Deatils-Wrapper {
 	top: -0.5%;
 	position: relative;
+	border-radius: 6px;
 }
 
 .company-name {
@@ -66,6 +67,10 @@
 	text-decoration: none;
 }
 
+.how-to-apply p a {
+	word-wrap: break-word;
+}
+
 /*************Description-Wrapper******/
 
 .Job-dot {
@@ -89,6 +94,7 @@
 	font-size: 1.5rem;
 	font-weight: 600;
 }
+
 .Description-Location {
 	color: #5964e0;
 

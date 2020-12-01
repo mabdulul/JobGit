@@ -8,6 +8,9 @@ import drilldown from "./images/icons/drilldown.svg";
 import searchWhite from "./images/icons/white_search.svg";
 import Modal from "react-bootstrap/Modal";
 
+import { ThemeContext } from "../context/ThemeContext";
+import { useContext } from "react";
+
 import moment from "moment";
 import Button from "react-bootstrap/Button";
 const SearchBar = ({
@@ -24,6 +27,11 @@ const SearchBar = ({
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+
+	const themeContext = useContext(ThemeContext);
+
+	const { isLightTheme, light, dark } = themeContext;
+	const theme = isLightTheme ? light : dark;
 
 	useEffect(() => {
 		if (window.innerWidth >= 774 && window.innerWidth < 1003) {
@@ -52,13 +60,16 @@ const SearchBar = ({
 			y: "1 year",
 			yy: "%d years",
 		},
-	}); 
+	});
 
 	return (
 		<>
 			<div className='SearchBar-wrapper'>
 				<form onSubmit={onSubmit} className='SearchBar'>
-					<div className='Search_Container search-wrapper '>
+					<div
+						className='Search_Container search-wrapper '
+						style={{ backgroundColor: theme.bg }}
+					>
 						<div className='search_Input-holder another-wrapper'>
 							<img
 								className='search-icons search-DandT'
@@ -72,6 +83,7 @@ const SearchBar = ({
 								name='type'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
+								style={{ backgroundColor: theme.bg }}
 							/>
 						</div>
 						<div className='modal-locationDandT warpper-location '>
@@ -88,19 +100,26 @@ const SearchBar = ({
 									name='location'
 									value={location}
 									onChange={(e) => setLocation(e.target.value)}
+									style={{ backgroundColor: theme.bg }}
 								/>
 							</div>
 						</div>
 						<div className='search-DandT test Search-CheckBox  '>
 							<div className='another-wrapper'>
 								<label className='container_check'>
-									<div className='Search_FullTime'>FullTime </div>
+									<div
+										className='Search_FullTime'
+										style={{ color: theme.syntaxt }}
+									>
+										FullTime{" "}
+									</div>
 									<input
 										className='Search_Input'
 										type='checkbox'
 										name='fulltime'
 										value={fulltime}
 										onChange={(e) => setFulltime(!!!fulltime)}
+										style={{ backgroundColor: theme.bg }}
 									/>
 
 									<div className='checkmark'></div>
@@ -130,7 +149,10 @@ const SearchBar = ({
 
 					<Modal show={show} onHide={handleClose} animation={false}>
 						<form onSubmit={onSubmit}>
-							<div className='Search_Container-modal search-wrapper'>
+							<div
+								className='Search_Container-modal search-wrapper'
+								style={{ backgroundColor: theme.bg }}
+							>
 								<div className='modal-location'>
 									<div>
 										<img
@@ -145,6 +167,7 @@ const SearchBar = ({
 											name='location'
 											value={location}
 											onChange={(e) => setLocation(e.target.value)}
+											style={{ backgroundColor: theme.bg }}
 										/>
 									</div>
 								</div>
@@ -152,13 +175,19 @@ const SearchBar = ({
 
 								<div className='Search_checkbox'>
 									<label className='container_check'>
-										<div className='Search_FullTime'>Full Time Only</div>
+										<div
+											className='Search_FullTime'
+											style={{ color: theme.syntaxt }}
+										>
+											Full Time Only
+										</div>
 										<input
 											className='Search_Input'
 											type='checkbox'
 											name='fulltime'
 											value={fulltime}
 											onChange={(e) => setFulltime(!!!fulltime)}
+											style={{ backgroundColor: theme.bg }}
 										/>
 
 										<div className='checkmark'></div>
