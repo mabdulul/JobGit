@@ -154,15 +154,12 @@
 	left: 0;
 	height: 24px;
 	width: 24px;
-	background: rgba(25, 32, 45, 0.1);
+	background: #97979759;
 
 	border-radius: 3px;
 }
 
 /* On mouse-over, add a grey background color */
-.container_check:hover input ~ .checkmark {
-	background: rgb(25 32 45 / 20%);
-}
 
 /* When the checkbox is checked, add a blue background */
 .container_check input:checked ~ .checkmark {

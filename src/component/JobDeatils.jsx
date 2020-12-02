@@ -90,7 +90,11 @@ const JobDeatils = () => {
 													)}
 												</div>
 												<div className='company-name'>
-													<p style={{ color: theme.syntaxt }}>
+													<p
+														style={{
+															color: theme.syntaxt,
+														}}
+													>
 														{state.jobs.company}
 													</p>
 													<span>
@@ -104,17 +108,20 @@ const JobDeatils = () => {
 																	.replace("http:/", "")}
 													</span>
 												</div>
-												<div className='btn-link'>
+												<div
+													className='btn-link'
+													style={{ color: theme.btnColor }}
+												>
 													{!state.jobs.company_url ? (
 														<div>
-															<p style={{ color: theme.syntaxt }}>
+															<p style={{ color: theme.btnColor }}>
 																No company site
 															</p>
 														</div>
 													) : !state.jobs.company_url.match(
 															/[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)?/
 													  ) ? (
-														<p style={{ color: theme.syntaxt }}>
+														<p style={{ color: theme.btnColor }}>
 															No company site
 														</p>
 													) : (
@@ -122,7 +129,7 @@ const JobDeatils = () => {
 															href={state.jobs.company_url}
 															target='_blank'
 															rel='noopener noreferrer'
-															style={{ color: theme.syntaxt }}
+															style={{ color: theme.btnColor }}
 														>
 															Company Site
 														</a>
@@ -185,31 +192,22 @@ const JobDeatils = () => {
 											></div>
 										</div>
 									</div>
-									<div
-										className='content how-to-apply'
-										dangerouslySetInnerHTML={{
-											__html: state.jobs.how_to_apply,
-										}}
-									></div>
+									<div className='content how-to-apply'>
+										<strong>How to Apply</strong>
+										<div
+											dangerouslySetInnerHTML={{
+												__html: state.jobs.how_to_apply,
+											}}
+										></div>
+									</div>
 
 									<div
 										className='ApplyNow'
 										style={{ backgroundColor: theme.bg }}
 									>
 										<div className='company-name company-dandt'>
-											<p style={{ color: theme.syntaxt }}>
-												{state.jobs.company}
-											</p>
-											<span>
-												{!state.jobs.company_url
-													? " "
-													: state.jobs.company_url
-															.replace("/", "")
-															.replace("https:/", "")
-															.replace("www.", "")
-															.replace("www.", "")
-															.replace("http:/", "")}
-											</span>
+											<p style={{ color: theme.syntaxt }}>{state.jobs.title}</p>
+											<span>{state.jobs.company}</span>
 										</div>
 										<div className='button-an'>
 											{applynow.length <= 1 ? (

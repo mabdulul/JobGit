@@ -61,14 +61,24 @@
 	color: #5964e0;
 	font-weight: 600;
 }
-.btn-link:hover,
-.btn-link a:hover {
-	background-color: #c6c9f4;
+
+.btn-link:hover {
+	background-color: #c6c9f4c9;
 	text-decoration: none;
+}
+
+.how-to-apply {
+	background-image: url("../images/bgD.svg");
+	background-position: center;
+	background-size: cover;
 }
 
 .how-to-apply p a {
 	word-wrap: break-word;
+}
+
+.button-an:hover {
+	background-color: #939bf4;
 }
 
 /*************Description-Wrapper******/
@@ -178,6 +188,7 @@
 	}
 
 	.Deatils-logo {
+		background-color: transparent;
 	}
 
 	.company-name {

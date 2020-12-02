@@ -83,7 +83,7 @@ const SearchBar = ({
 								name='type'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
-								style={{ backgroundColor: theme.bg }}
+								style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
 							/>
 						</div>
 						<div className='modal-locationDandT warpper-location '>
@@ -100,7 +100,7 @@ const SearchBar = ({
 									name='location'
 									value={location}
 									onChange={(e) => setLocation(e.target.value)}
-									style={{ backgroundColor: theme.bg }}
+									style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
 								/>
 							</div>
 						</div>
@@ -119,7 +119,7 @@ const SearchBar = ({
 										name='fulltime'
 										value={fulltime}
 										onChange={(e) => setFulltime(!!!fulltime)}
-										style={{ backgroundColor: theme.bg }}
+										style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
 									/>
 
 									<div className='checkmark'></div>
@@ -167,7 +167,10 @@ const SearchBar = ({
 											name='location'
 											value={location}
 											onChange={(e) => setLocation(e.target.value)}
-											style={{ backgroundColor: theme.bg }}
+											style={{
+												backgroundColor: theme.bg,
+												color: theme.syntaxt,
+											}}
 										/>
 									</div>
 								</div>
@@ -187,7 +190,10 @@ const SearchBar = ({
 											name='fulltime'
 											value={fulltime}
 											onChange={(e) => setFulltime(!!!fulltime)}
-											style={{ backgroundColor: theme.bg }}
+											style={{
+												backgroundColor: theme.bg,
+												color: theme.syntaxt,
+											}}
 										/>
 
 										<div className='checkmark'></div>

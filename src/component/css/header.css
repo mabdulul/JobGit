@@ -109,6 +109,10 @@ ul {
 	transition: 0.4s;
 }
 
+.slider:hover:before {
+	background-color: #939bf4;
+}
+
 input:checked + .slider:before {
 	-webkit-transform: translateX(18px);
 	-ms-transform: translateX(18px);

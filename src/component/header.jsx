@@ -10,11 +10,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 const Header = () => {
 	const themeContext = useContext(ThemeContext);
-
 	const { isLightTheme, toggleTheme, light, dark } = themeContext;
+
 	const theme = isLightTheme ? light : dark;
 
 	document.body.style.backgroundColor = theme.bodyColor;
+
+	console.log(isLightTheme);
 
 	return (
 		<header className='header-logo'>
