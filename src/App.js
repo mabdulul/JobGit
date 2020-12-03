@@ -92,9 +92,7 @@ function App() {
 						{!!state.error}
 						<div className='Job-div'>
 							{state.jobs.length === 0 && state.loading === false ? (
-								<p className='test' style={{ color: theme.syntaxt }}>
-									No jobs found
-								</p>
+								<p style={{ color: theme.syntaxt }}>No jobs found</p>
 							) : (
 								<>
 									<>
