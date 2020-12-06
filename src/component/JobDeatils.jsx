@@ -11,6 +11,7 @@ import Moment from "react-moment";
 import CompanyHolder from "../component/images/icons/company-placeholder.png";
 
 import { ThemeContext } from "../context/ThemeContext";
+import Header from "../component/header.jsx";
 
 import "./css/Deatils.css";
 
@@ -53,6 +54,7 @@ const JobDeatils = () => {
 
 	return (
 		<>
+			<Header />
 			<div className='container'>
 				{state.loading ? (
 					<LoadingScreen />

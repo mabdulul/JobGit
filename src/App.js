@@ -17,6 +17,8 @@ import CompanyHolder from "./component/images/icons/company-placeholder.png";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
+import Header from "./component/header.jsx";
+
 function App() {
 	const themeContext = useContext(ThemeContext);
 
@@ -70,8 +72,13 @@ function App() {
 			.catch((error) => dispatch({ type: "FETCH_ERROR" }));
 	};
 
+	const clearSearch = () => {
+		fetchJobs();
+	};
+
 	return (
 		<>
+			<Header clearSearch={clearSearch} />
 			<div className='container'>
 				<div className='row'>
 					<div className='col-sm-12 col-md-12 col-lg-12 '>

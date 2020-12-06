@@ -6,8 +6,6 @@ import JobDeatils from "./component/JobDeatils";
 import * as serviceWorker from "./serviceWorker";
 import ThemeContextProvider from "./context/ThemeContext";
 
-import Header from "./component/header.jsx";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
@@ -15,7 +13,6 @@ ReactDOM.render(
 		<ThemeContextProvider>
 			<Router>
 				<Route>
-					<Header />
 					<Switch>
 						<Route path='/job/:url' component={JobDeatils} />
 						<Route path='/' component={App} />

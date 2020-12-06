@@ -8,14 +8,11 @@ import { ThemeContext } from "../context/ThemeContext";
 import { useContext } from "react";
 
 import { Link } from "react-router-dom";
-const Header = () => {
+const Header = ({ clearSearch }) => {
 	const themeContext = useContext(ThemeContext);
 	const { isLightTheme, toggleTheme, light, dark } = themeContext;
-
 	const theme = isLightTheme ? light : dark;
-
 	document.body.style.backgroundColor = theme.bodyColor;
-
 	console.log(isLightTheme);
 
 	return (
@@ -25,7 +22,12 @@ const Header = () => {
 					<div className='col-sm-12 col-md-12 col-lg-12 col-header'>
 						<div>
 							<Link to='/'>
-								<img src={Logo} className='img-fluid' alt='logo' />
+								<img
+									src={Logo}
+									className='img-fluid'
+									alt='logo'
+									onClick={clearSearch}
+								/>
 							</Link>
 						</div>
 						<div>
