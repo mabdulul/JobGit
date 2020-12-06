@@ -25,12 +25,7 @@ const Header = () => {
 					<div className='col-sm-12 col-md-12 col-lg-12 col-header'>
 						<div>
 							<Link to='/'>
-								<img
-									src={Logo}
-									className='img-fluid'
-									alt='logo'
-									onClick={() => window.location.reload(false)}
-								/>
+								<img src={Logo} className='img-fluid' alt='logo' />
 							</Link>
 						</div>
 						<div>
