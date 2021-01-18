@@ -75,13 +75,14 @@ const SearchBar = ({
 								className='search-icons search-DandT'
 								src={Search}
 								alt='search'
+								id="searchtextD"
 								
 							/>
 							<input
 								className='search_Input'
 								type='text'
 								placeholder={placeholder}
-								aria-labelledby="mySearch searchtext"
+								aria-labelledby="mySearch searchtextD"
 								name='text'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
@@ -94,13 +95,14 @@ const SearchBar = ({
 									className='search-icons'
 									src={LocationIcon}
 									alt='LocationIcon'
+									id="searchlocationD"
 								/>
 								<input
 									className='Search_Input'
 									type='text'
 									placeholder='Filter by location…'
 									name='location'
-									aria-labelledby="mySearch searchlocation"
+									aria-labelledby="mySearch searchlocationD"
 									value={location}
 									onChange={(e) => setLocation(e.target.value)}
 									style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
@@ -118,10 +120,11 @@ const SearchBar = ({
 									</div>
 									<input
 										className='Search_Input'
+										id="searchfulltimeD"
 										type='checkbox'
 										name='fulltime'
 										value={fulltime}
-										aria-labelledby="mySearch searchfulltime"
+										aria-labelledby="mySearch searchfulltimeD"
 										onChange={(e) => setFulltime(!!!fulltime)}
 										style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
 									/>
@@ -186,7 +189,8 @@ const SearchBar = ({
 										<div
 											className='Search_FullTime'
 											style={{ color: theme.syntaxt }}
-										>
+											id="searchfulltimem"
+										>  
 											Full Time Only
 										</div>
 										<input
