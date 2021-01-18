@@ -112,12 +112,12 @@ const SearchBar = ({
 						<div className='search-DandT test Search-CheckBox  '>
 							<div className='another-wrapper'>
 								<label className='container_check'>
-									<div
+									<span
 										className='Search_FullTime'
 										style={{ color: theme.syntaxt }}
 									>
 										FullTime{" "}
-									</div>
+									</span>
 									<input
 										className='Search_Input'
 										id="searchfulltimeD"
