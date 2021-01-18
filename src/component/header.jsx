@@ -32,7 +32,7 @@ const Header = ({ clearSearch }) => {
 						</div>
 						<div>
 							<img src={sun} alt='light' />
-							<label className='switch'>
+							<label className='switch' title="switch">
 								<input
 									type='checkbox'
 									onClick={toggleTheme}
