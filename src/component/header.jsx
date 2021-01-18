@@ -37,6 +37,7 @@ const Header = ({ clearSearch }) => {
 									type='checkbox'
 									onClick={toggleTheme}
 									value={isLightTheme}
+									title="switch"
 								/>
 
 								<span className='slider round'></span>
