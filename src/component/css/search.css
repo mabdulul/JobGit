@@ -150,7 +150,7 @@
 /* Create a custom checkbox */
 .checkmark {
 	position: absolute;
-	top: 0;
+	top: 6px;
 	left: 0;
 	height: 24px;
 	width: 24px;
