@@ -65,7 +65,7 @@ const SearchBar = ({
 	return (
 		<>
 			<div className='SearchBar-wrapper'>
-				<form onSubmit={onSubmit} className='SearchBar'>
+				<form onSubmit={onSubmit} className='SearchBar' id="mySearch">
 					<div
 						className='Search_Container search-wrapper '
 						style={{ backgroundColor: theme.bg }}
