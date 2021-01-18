@@ -129,7 +129,7 @@ const SearchBar = ({
 										style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
 									/>
 
-									<div className='checkmark'></div>
+									<span className='checkmark'></span>
 								</label>
 								<div className='search-holder search-holder-white '>
 									<button className='btn btn-search' type='submit'>
