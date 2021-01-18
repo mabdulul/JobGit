@@ -75,12 +75,13 @@ const SearchBar = ({
 								className='search-icons search-DandT'
 								src={Search}
 								alt='search'
+								
 							/>
 							<input
 								className='search_Input'
 								type='text'
 								placeholder={placeholder}
-								name='type'
+								name='text'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
 								style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
