@@ -81,6 +81,7 @@ const SearchBar = ({
 								className='search_Input'
 								type='text'
 								placeholder={placeholder}
+								aria-labelledby="mySearch searchtext"
 								name='text'
 								value={type}
 								onChange={(e) => setType(e.target.value)}
@@ -99,6 +100,7 @@ const SearchBar = ({
 									type='text'
 									placeholder='Filter by location…'
 									name='location'
+									aria-labelledby="mySearch searchlocation"
 									value={location}
 									onChange={(e) => setLocation(e.target.value)}
 									style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
@@ -119,6 +121,7 @@ const SearchBar = ({
 										type='checkbox'
 										name='fulltime'
 										value={fulltime}
+										aria-labelledby="mySearch searchfulltime"
 										onChange={(e) => setFulltime(!!!fulltime)}
 										style={{ backgroundColor: theme.bg, color: theme.syntaxt }}
 									/>
@@ -167,6 +170,7 @@ const SearchBar = ({
 											placeholder='Filter by location…'
 											name='location'
 											value={location}
+											aria-labelledby="mySearch searchlocation"
 											onChange={(e) => setLocation(e.target.value)}
 											style={{
 												backgroundColor: theme.bg,
@@ -190,6 +194,7 @@ const SearchBar = ({
 											type='checkbox'
 											name='fulltime'
 											value={fulltime}
+											aria-labelledby="mySearch searchfulltime"
 											onChange={(e) => setFulltime(!!!fulltime)}
 											style={{
 												backgroundColor: theme.bg,
