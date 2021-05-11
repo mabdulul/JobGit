@@ -103,7 +103,7 @@ function App() {
 									No jobs found
 								</p>
 							) : state.jobs.message ? (
-								<p>Something went wrong try reloading l</p>
+								<p>Something went wrong try reloading </p>
 							) : (
 								<>
 									<>
