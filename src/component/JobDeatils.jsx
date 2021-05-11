@@ -45,7 +45,6 @@ const JobDeatils = () => {
 		fetchJobs();
 
 		return () => {
-			console.log("removed");
 			dispatch({ type: "FETCH_CLEAR" });
 		};
 	}, [url, dispatch]);

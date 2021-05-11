@@ -102,9 +102,12 @@ function App() {
 								<p className='t' style={{ color: theme.syntaxt }}>
 									No jobs found
 								</p>
+							) : state.jobs.message ? (
+								<p>Something went wrong try reloading l</p>
 							) : (
 								<>
 									<>
+										{console.log("Line 108", state.jobs)}
 										<div className='Jobs-wrapper'>
 											{state.jobs.map((jo) => (
 												<Link
