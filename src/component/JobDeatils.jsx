@@ -29,7 +29,8 @@ const JobDeatils = () => {
 		const fetchJobs = async () => {
 			await getJobDetails(url)
 				.then((response) => {
-					const expression = /<a\s+(?:[^>]*?\s+)?href="([^"]*)"|[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)/;
+					const expression =
+						/<a\s+(?:[^>]*?\s+)?href="([^"]*)"|[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)/;
 
 					let regex = new RegExp(expression);
 					const test = response.how_to_apply.match(regex)[1] || " ";
@@ -48,8 +49,6 @@ const JobDeatils = () => {
 			dispatch({ type: "FETCH_CLEAR" });
 		};
 	}, [url, dispatch]);
-
-	console.log("here", state.jobs);
 
 	return (
 		<>

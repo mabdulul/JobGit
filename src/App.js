@@ -98,16 +98,15 @@ function App() {
 						{state.loading && <LoadingScreen />}
 						{!!state.error}
 						<div className='Job-div'>
-							{state.jobs.length === 0 && state.loading === false ? (
+							{state.message ? (
+								<p>{state.message} </p>
+							) : state.jobs.length === 0 && state.loading === false ? (
 								<p className='t' style={{ color: theme.syntaxt }}>
 									No jobs found
 								</p>
-							) : state.jobs.message ? (
-								<p>Something went wrong try reloading </p>
 							) : (
 								<>
 									<>
-										{console.log("Line 108", state.jobs)}
 										<div className='Jobs-wrapper'>
 											{state.jobs.map((jo) => (
 												<Link

@@ -38,10 +38,25 @@ const reducer = (state, action) => {
 				jobs: [...state.jobs],
 			};
 		case "FETCH_LOADMORE":
-			return {
-				loadingMore: false,
-				jobs: [...state.jobs, ...action.payload],
-			};
+			console.log("The action", action.payload);
+			if (action.payload.message) {
+				return {
+					loading: false,
+					jobs: [],
+					error: action.payload.message,
+				};
+			} else if (action.payload <= 0) {
+				return {
+					loadingMore: false,
+					jobs: [...state.jobs],
+				};
+			} else {
+				return {
+					loadingMore: false,
+					jobs: [...state.jobs, ...action.payload],
+				};
+			}
+
 		default:
 			return state;
 	}
